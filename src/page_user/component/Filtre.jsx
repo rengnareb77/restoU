@@ -1,7 +1,7 @@
 import React from "react";
 
 import Service from "./Service";
-import Jour from "./Jour";
+import Calendrier from "./Calendrier";
 
 class Filtre extends React.Component {
   date = "2022-10-11";
@@ -11,7 +11,7 @@ class Filtre extends React.Component {
     return (
       <div id="filtre">
         <Service />
-        <Jour />
+        <Calendrier />
       </div>
     );
   }
