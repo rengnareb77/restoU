@@ -5,41 +5,37 @@ import "react-responsive-datepicker/dist/index.css";
 
 import Button from "react-bootstrap/Button";
 
-class Jour extends React.Component {
-
+class Calendrier extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpen: false,
+      date: new Date()
+    };
+  }
 
   render() {
     return (
       <div>
-        <Calendrier />
+        <button
+          onClick={() => {
+            this.setState({ isOpen: true });
+          }}
+        >
+          {this.state.date.toLocaleString()}
+        </button>
+        <DatePicker
+          isOpen={this.state.isOpen}
+          onClose={() => this.setState({ isOpen: false })}
+          defaultValue={this.state.date}
+          minDate={new Date(2022, 9, 10)}
+          maxDate={new Date(2023, 0, 10)}
+          headerFormat="DD, MM dd"
+          colorScheme="blue"
+        />
       </div>
     );
   }
 }
 
-const Calendrier = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
-
-  return (
-    <div>
-      <Button
-        onClick={() => {
-          setIsOpen(true);
-        }}
-      >
-        06/10/22
-      </Button>
-      <DatePicker
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-        defaultValue={new Date(2022, 8, 8)}
-        minDate={new Date(2022, 10, 10)}
-        maxDate={new Date(2023, 0, 10)}
-        headerFormat="DD, MM dd"
-        colorScheme="blue"
-      />
-    </div>
-  );
-};
-
-export default Jour;
+export default Calendrier;
