@@ -1,32 +1,35 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
+
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
+
 
 class Service extends React.Component {
   constructor(props) {
     super(props);
-    /*this.state = {
-      Service: "",
-    }*/
+
+    this.state = {
+      val: "Midi"
+    };
   }
 
   onChangeValue(event) {
-    //alert(event.target.attributes.getNamedItem("data-key").value);
-    const selection = event.target.attributes.getNamedItem("data-key").value;
+    this.setState({ val: event });
+    //alert(event);
   }
 
   render() {
     return (
       <div id="service">
-        <div id="radio-service">
-          <ButtonGroup onClick={this.onChangeValue.bind(this)} className="mb-2">
-            <Button variant="primary" data-key="Midi">
-              Midi
-            </Button>
-            <Button variant="primary" data-key="Soir">
-              Soir
-            </Button>
-          </ButtonGroup>
+        <div id="dropdown-service">
+          <DropdownButton
+            id="dropdown-basic-button"
+            title={this.state.val}
+            onSelect={this.onChangeValue.bind(this)}
+          >
+            <Dropdown.Item eventKey="Midi">Midi</Dropdown.Item>
+            <Dropdown.Item eventKey="Soir">Soir</Dropdown.Item>
+          </DropdownButton>
         </div>
       </div>
     );

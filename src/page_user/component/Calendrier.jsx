@@ -27,7 +27,7 @@ class Calendrier extends React.Component {
         <DatePicker
           isOpen={this.state.isOpen}
           onClose={() => this.setState({ isOpen: false })}          
-          onChange={(e) => (this.state.date = e)}
+          onChange={(e) => this.setState({ date: e, isOpen: false })}
           defaultValue={this.state.date}
           minDate={new Date(2022, 9, 10)}
           maxDate={new Date(2023, 0, 10)}
