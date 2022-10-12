@@ -17,13 +17,13 @@ class Calendrier extends React.Component {
   render() {
     return (
       <div>
-        <button
+        <Button
           onClick={() => {
             this.setState({ isOpen: true });
           }}
         >
           {this.state.date.toDateString()}
-        </button>
+        </Button>
         <DatePicker
           isOpen={this.state.isOpen}
           onClose={() => this.setState({ isOpen: false })}          
