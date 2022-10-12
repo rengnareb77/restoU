@@ -8,7 +8,6 @@ class App extends React.Component {
   render() {
     return (
       <div id="App">
-        {/*<Header />*/}
         <br />
         <div>
           Fenetre Affichage
@@ -23,7 +22,6 @@ class App extends React.Component {
           <Entre_plat_dessert nom="Dessert : " />
         </div>
         <br />
-        <Footer />
       </div>
     );
   }

@@ -3,20 +3,8 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import FenetreModal from "./FenetreModal";
 
-type Props = {
-  onHide:()=> void
-  show:boolean 
-}
-
-type Props2={
-}
-interface State {
-  modalShow:boolean
-
-}
-
-class MyVerticallyCenteredModal extends React.Component<Props,State> {
-  constructor(props:Props) {
+class MyVerticallyCenteredModal extends React.Component {
+  constructor(props) {
     super(props)
     
   }
@@ -43,8 +31,8 @@ class MyVerticallyCenteredModal extends React.Component<Props,State> {
   }
 }
 
-class OpenModal extends React.Component<Props2,State> {
-  constructor(props:Props2) {
+class OpenModal extends React.Component {
+  constructor(props) {
     super(props);
     this.state = { modalShow: false };
   }

@@ -1,16 +1,8 @@
 import React from "react";
 import OpenModal from "./MyVerticallyCenteredModal";
 
-type Props = {
-  nom:string
-}
-
-interface State {
-  nom:string
-}
-
-class Entre_plat_dessert extends React.Component<Props,State> {
-  constructor(props:Props) {
+class Entre_plat_dessert extends React.Component {
+  constructor(props) {
     super(props);
     this.state = { nom: props.nom };
   }

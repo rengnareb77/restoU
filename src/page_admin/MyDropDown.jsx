@@ -1,17 +1,8 @@
 import React from "react";
 import Dropdown from "react-dropdown";
 
-type Props = {
-  nom:string
-}
-
-interface State {
-  nom:string;
-  value:string;
-}
-
-class MyDropDown extends React.Component<Props,State> {
-  constructor(props:Props) {
+class MyDropDown extends React.Component {
+  constructor(props) {
     super(props);
     this.state = { value: "", nom: props.nom };
   }

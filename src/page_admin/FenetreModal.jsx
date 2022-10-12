@@ -3,13 +3,9 @@ import "react-dropdown/style.css";
 import MyDropDown from "./MyDropDown";
 import ZoneSaisie from "./ZoneSaisie";
 
-type Props = {}
-interface State {
-  value:string
-}
 
-class FenetreModal extends React.Component<Props,State> {
-  constructor(props:Props) {
+class FenetreModal extends React.Component {
+  constructor(props) {
     super(props);
     this.state = { value: "" };
 
@@ -17,11 +13,11 @@ class FenetreModal extends React.Component<Props,State> {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event:React.SyntheticEvent) {
-    this.setState({ value: (event.target  as HTMLInputElement).value });
+  handleChange(event) {
+    this.setState({ value: event.target.value });
   }
 
-  handleSubmit(event:React.SyntheticEvent) {
+  handleSubmit(event) {
     alert("Le produit a été ajouté: " + this.state.value);
     event.preventDefault();
   }

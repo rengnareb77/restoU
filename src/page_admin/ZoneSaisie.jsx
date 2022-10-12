@@ -1,15 +1,7 @@
 import React from "react";
 
-type Props = {
-  nom:string
-}
-
-interface State {
-  nom:string
-  value:string
-}
-class ZoneSaisie extends React.Component<Props,State> {
-  constructor(props:Props) {
+class ZoneSaisie extends React.Component {
+  constructor(props) {
     super(props);
     this.state = { value: "", nom: props.nom };
 
@@ -17,11 +9,11 @@ class ZoneSaisie extends React.Component<Props,State> {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event:React.SyntheticEvent) {
-    this.setState({ value: (event.target  as HTMLInputElement).value });
+  handleChange(event) {
+    this.setState({ value: event.target.value });
   }
 
-  handleSubmit(event:React.SyntheticEvent) {
+  handleSubmit(event) {
     alert("Le nom a été ajouté: " + this.state.value);
     event.preventDefault();
   }
