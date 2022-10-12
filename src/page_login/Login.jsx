@@ -2,6 +2,7 @@ import React from "react";
 import Boutton from "./boutton";
 import Input from "./Input";
 import Password from "./password";
+import './styles.css';
 class Login extends React.Component {
   constructor(props) {
     super(props);
