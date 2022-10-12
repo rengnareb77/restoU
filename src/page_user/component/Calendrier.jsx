@@ -22,11 +22,12 @@ class Calendrier extends React.Component {
             this.setState({ isOpen: true });
           }}
         >
-          {this.state.date.toLocaleString()}
+          {this.state.date.toDateString()}
         </button>
         <DatePicker
           isOpen={this.state.isOpen}
-          onClose={() => this.setState({ isOpen: false })}
+          onClose={() => this.setState({ isOpen: false })}          
+          onChange={(e) => (this.state.date = e)}
           defaultValue={this.state.date}
           minDate={new Date(2022, 9, 10)}
           maxDate={new Date(2023, 0, 10)}
