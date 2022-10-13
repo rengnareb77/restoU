@@ -1,4 +1,3 @@
-import AlimentObject from "./class/AlimentObject";
 import './PageUser.css';
 import Header from "../component/Header";
 import Filtre from "./component/Filtre";
