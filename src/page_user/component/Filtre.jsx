@@ -7,7 +7,7 @@ class Filtre extends React.Component {
   date = "2022-10-11";
   service = "Midi";
 
-  render() { 
+  render() {
     return (
       <div id="filtre">
         <Service />
