@@ -26,9 +26,9 @@ const PageUser= () =>{
     <div className="PageUser">
         <Header/>
         <Filtre/>
-        <div className={"Cartes"}>
-            <Carte titre="Repas du Midi" aliments={tabAliment}/>
-            <CartePerso titre="Votre menu" aliments={null}/>
+        <div className={"Cartes"} >
+            <Carte id={"carteMenu"} titre="Repas du Midi" aliments={data}/>
+            <CartePerso id={"cartePerso"} titre="Votre menu" />
         </div>
 
         <Footer/>
