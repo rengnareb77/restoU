@@ -10,22 +10,31 @@ class PlatChoix extends React.Component{
         }
     }
 
+    remove(aliment){
+        let listAliments = this.state.aliments;
+        delete listAliments[listAliments.indexOf(aliment)];
+        this.setState({aliments:listAliments});
+    }
+
+    add(aliment){
+        let listAliments = this.state.aliments;
+        listAliments.add(aliment);
+        this.setState({aliments:listAliments});
+    }
+
     render() {
-        if (this.state.aliments)
-            return(
-                <div className={"PlatChoix"}>
-                    <h2>{this.state.titre}</h2>
-                        {this.state.aliments.map(aliment =>(
-                            <Aliment aliment={aliment} button={true}/>
-                        ))}
-                </div>
-            )
-        else
-            return(
-                <div className={"PlatChoix"}>
-                    <h2>{this.state.titre}</h2>
-                </div>
-            )
+        if (!this.state.aliments || this.state.aliments.length === 0)
+            return(<div className={"PlatChoix"}/>)
+        return(
+            <div className={"PlatChoix"}>
+                <h2>{this.state.titre}</h2>
+                    {this.state.aliments.map((aliment,key) =>(
+                        <Aliment parent={this} key={key} aliment={aliment} button={true}/>
+                    ))}
+            </div>
+        )
+
+
     }
 
 }
