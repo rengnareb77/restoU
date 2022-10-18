@@ -45,7 +45,7 @@ Pour lancer l'API :
 
 2. Lancer la commande `npm install`
 
-3. Vérifier que le fichier .env est bien configuré (*cf la partie Arborescence*).
+3. Vérifier que le fichier `.env` est bien configuré (*cf la partie Arborescence*).
 
 4. Lancer la commande `npm start`
 
