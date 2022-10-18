@@ -1,8 +1,8 @@
 import React from "react";
 import "./styles.css";
-//import Header from "./Header";
-import Footer from "./Footer";
+import Header from "./Header";
 import Entre_plat_dessert from "./Entre_plat_dessert";
+import Fetch from "./Fetch";
 
 class App extends React.Component {
   render() {
@@ -20,6 +20,9 @@ class App extends React.Component {
           <br />
           <br />
           <Entre_plat_dessert nom="Dessert : " />
+          <div>
+          </div> 
+          <Fetch/>
         </div>
         <br />
       </div>

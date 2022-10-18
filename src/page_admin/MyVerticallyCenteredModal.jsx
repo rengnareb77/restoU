@@ -20,7 +20,7 @@ class MyVerticallyCenteredModal extends React.Component {
           <Modal.Title id="contained-modal-title-vcenter">Ajouter</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h4>Ajouter votre (Entré, plat, dessert)</h4>
+          <h4>Ajouter votre {this.props.nom}</h4>
           <FenetreModal />
         </Modal.Body>
         <Modal.Footer>
@@ -52,6 +52,7 @@ class OpenModal extends React.Component {
         </Button>
 
         <MyVerticallyCenteredModal 
+          nom={this.props.nom}
           show={this.state.modalShow}
           onHide={() =>
             this.setState((prevState) => {

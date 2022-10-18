@@ -2,6 +2,7 @@ import React from "react";
 import "react-dropdown/style.css";
 import MyDropDown from "./MyDropDown";
 import ZoneSaisie from "./ZoneSaisie";
+import Liste from "./Liste";
 
 
 class FenetreModal extends React.Component {
@@ -25,6 +26,8 @@ class FenetreModal extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
+        <Liste />
+        <br/>
         <br />
         <ZoneSaisie nom="Nom : " />
         <br />
@@ -35,6 +38,7 @@ class FenetreModal extends React.Component {
         <MyDropDown nom="Allèrgene : " />
         <br />
         <input type="submit" value="Envoyer" />
+        
       </form>
     );
   }

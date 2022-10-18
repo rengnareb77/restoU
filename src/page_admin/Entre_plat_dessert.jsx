@@ -4,15 +4,14 @@ import OpenModal from "./MyVerticallyCenteredModal";
 class Entre_plat_dessert extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { nom: props.nom };
   }
 
   render() {
     return (
       <>
-        <label>{this.state.nom}</label>
-
-        <OpenModal />
+        <label>{this.props.nom}</label>
+      
+        <OpenModal nom={this.props.nom.toLowerCase()}/>
       </>
     );
   }
