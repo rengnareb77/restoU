@@ -17,7 +17,6 @@ class Liste extends React.Component {
               <ListGroup.Item action variant="dark">{this.props.nom}</ListGroup.Item>
               <ListGroup.Item action variant="dark">{this.props.nom}</ListGroup.Item>
               <ListGroup.Item action variant="dark">{this.props.nom}</ListGroup.Item>
-              <ListGroup.Item action variant="dark">Dark</ListGroup.Item>
             </ListGroup>
        
   );

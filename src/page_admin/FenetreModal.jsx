@@ -2,8 +2,7 @@ import React from "react";
 import "react-dropdown/style.css";
 import MyDropDown from "./MyDropDown";
 import ZoneSaisie from "./ZoneSaisie";
-import Liste from "./Liste";
-
+import Radioboutton from "./Radioboutton";
 
 class FenetreModal extends React.Component {
   constructor(props) {
@@ -26,7 +25,6 @@ class FenetreModal extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <Liste />
         <br/>
         <br />
         <ZoneSaisie nom="Nom : " />
@@ -35,8 +33,13 @@ class FenetreModal extends React.Component {
         <ZoneSaisie nom="Valeur Calorique : " />
         <br />
         <br />
+        <Radioboutton nom="plat végétarien ?"/>
+        <br/>
+        <br/>
         <MyDropDown nom="Allèrgene : " />
         <br />
+        <br/>
+        
         <input type="submit" value="Envoyer" />
         
       </form>

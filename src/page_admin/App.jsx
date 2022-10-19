@@ -3,6 +3,8 @@ import "./styles.css";
 import Header from "./Header";
 import Entre_plat_dessert from "./Entre_plat_dessert";
 import Fetch from "./Fetch";
+import Listechoix from "./Listechoix";
+
 
 class App extends React.Component {
   render() {
@@ -13,7 +15,7 @@ class App extends React.Component {
           Fenetre Affichage
           <br />
           <br />
-          <Entre_plat_dessert nom="Entrée : " />
+          <Entre_plat_dessert nom="Entrée : " /><Listechoix/>
           <br />
           <br />
           <Entre_plat_dessert nom="Plat : " />
