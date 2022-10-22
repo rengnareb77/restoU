@@ -4,14 +4,22 @@ import Service from "./Service";
 import Calendrier from "./Calendrier";
 
 class Filtre extends React.Component {
-  date = "2022-10-11";
-  service = "Midi";
+  //service = "Midi";
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      date: new Date(),
+    };
+  }
+  
 
   render() { 
     return (
       <div id="filtre">
-        <Service />
-        <Calendrier />
+        <Service date={this.state.date} />
+        <Calendrier date={this.state.date} />
       </div>
     );
   }

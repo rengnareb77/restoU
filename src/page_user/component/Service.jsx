@@ -5,17 +5,19 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 
 
 class Service extends React.Component {
+
   constructor(props) {
-    super(props);
+    super(props);//Props: date,
 
     this.state = {
-      val: "Midi"
+      val: ( ( (this.props.date.getHours() * 100) + (this.props.date.getMinutes()) ) > 1400) ? "Soir" : "Midi",
+      //S'il est 14 heures passées alors le menu du soir est affiché, sinon celui du midi.
     };
   }
 
   onChangeValue(event) {
     this.setState({ val: event });
-    //alert(event);
+    //alert(event); //debug
   }
 
   render() {
@@ -30,6 +32,7 @@ class Service extends React.Component {
             <Dropdown.Item eventKey="Midi">Midi</Dropdown.Item>
             <Dropdown.Item eventKey="Soir">Soir</Dropdown.Item>
           </DropdownButton>
+          
         </div>
       </div>
     );

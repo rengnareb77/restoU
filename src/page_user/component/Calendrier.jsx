@@ -7,10 +7,11 @@ import Button from "react-bootstrap/Button";
 
 class Calendrier extends React.Component {
   constructor(props) {
-    super(props);
+    super(props);//Props: date,
+
     this.state = {
       isOpen: false,
-      date: new Date()
+      date: this.props.date,
     };
   }
 
