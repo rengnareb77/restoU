@@ -14,7 +14,7 @@ const DataBase = function (){
     this.getRestoU = async () =>{
         const conn = await pool.getConnection();
         let restoU = [];
-        conn.queryStream("SELECT * FROM RU")
+        conn.queryStream("SELECT * FROM ru")
             .on("data", data => restoU.push(data))
         await conn.end();
         return restoU;
@@ -23,7 +23,7 @@ const DataBase = function (){
     this.getRestoUById = async (id) =>{
         const conn = await pool.getConnection();
         let restoU = [];
-        conn.queryStream("SELECT * FROM RU WHERE idRU = ?", [id])
+        conn.queryStream("SELECT * FROM ru WHERE idRU = ?", [id])
             .on("data", data => restoU.push(data))
         await conn.end();
         return restoU;
