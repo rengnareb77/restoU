@@ -7,10 +7,12 @@ const aliment = require('./routes/aliment');
 const login = require('./routes/login');
 const port = 3000;
 
+app.use(express.json());
+
 app.get("/", (req, res) => {
     res.send("Hello World!");
 });
-app.use(express.json());
+
 app.use('/api',carte);
 app.use('/api',restoU);
 app.use('/api',aliment);
