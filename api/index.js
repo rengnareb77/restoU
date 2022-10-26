@@ -24,5 +24,5 @@ app.use('/api',aliment);
 app.use('/api',login);
 
 app.listen(port, () => {
-    console.log(`API server listening at http://${host}:${port}`);
+    console.log(`API server listening at http://localhost:${port}`);
 });
