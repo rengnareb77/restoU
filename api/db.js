@@ -4,7 +4,7 @@ config();
 
 const DataBase = function (){
     const pool = createPool({
-        host     : process.env.HOST_DB,
+        host     : process.env.HOST,
         user     : process.env.USERDB,
         password : process.env.PASSWORD,
         database : process.env.DATABASE
