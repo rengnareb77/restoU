@@ -29,12 +29,13 @@ Les fichiers de l'API se situent dans le dossier `api/` :
 - `.env` : Ce fichier n'apparaît pas sur le git cependant **il est nécessaire de le créer comme ci-dessous** : 
 
 ```
-HOST=L'ADRESSE DE LA BASE DE DONNÉES
+HOST_DB=L'ADRESSE DE LA BASE DE DONNÉES
 USERDB=VOTRE NOM D'UTILISATEUR
 PASSWORD=VOTRE MOT DE PASSE
 DATABASE=VOTRE BASE DE DONNÉES
 
 PORT_SERVER_API=VOTRE PORT DE VOTRE MACHINE POUR LE SERVEUR API
+HOST_API=L'ADRESSE OÙ VOUS LANCER L'API
 ```
 
 ## Lancement
