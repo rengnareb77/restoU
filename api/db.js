@@ -4,7 +4,7 @@ config();
 
 const DataBase = function (){
     const pool = createPool({
-        host     : process.env.HOST,
+        host     : process.env.HOST_DB,
         user     : process.env.USERDB,
         password : process.env.PASSWORD,
         database : process.env.DATABASE
@@ -57,11 +57,20 @@ const DataBase = function (){
     /* ============================ */
 
     this.getAliments = async () =>{
-        // TODO : Récupère tous les aliments
-    }
+        const conn = await pool.getConnection();
+            let aliment = [];
+        conn.queryStream("SELECT * FROM Aliment")
+            .on("data", data => aliment.push(data))
+        await conn.end();
+        return aliment;
+    } 
+        
 
     this.getAlimentById = async (id) =>{
-        // TODO : Récupère un aliment spécifique
+        const conn = await pool.getConnection();
+        const request = "SELECT  FROM aliment WHERE idAliment = ?";
+        await conn.query(request, [id]);
+        await conn.end();
     }
 
     this.createAliment = async (aliment) =>{
@@ -71,7 +80,7 @@ const DataBase = function (){
         await conn.end();
     }
 
-    this.updateAliment = async (id,aliment) =>{
+    this.updateAliment = async (id,aliment) =>{ 
         // TODO : Mettre à jour un aliment
     }
 
