@@ -8,12 +8,15 @@ const aliment = require('./routes/aliment');
 const login = require('./routes/login');
 const dotenv = require('dotenv');
 dotenv.config();
-const host = process.env.HOST;
+const host = process.env.HOST_API;
 const port = process.env.PORT_SERVER_API;
+
+app.use(express.json());
 
 app.get("/", (req, res) => {
     res.send("Bienvenue sur l'API de RestoU !");
 });
+
 app.use(cors())
 app.use(express.json());
 app.use('/api',carte);
