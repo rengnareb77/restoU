@@ -14,14 +14,20 @@ class Aliment extends React.Component{
         }
     }
 
+    clickPlus(){
+        this.props.parent.remove(this.state.aliment);
+     }
+
+
+
     render() {
         let button = this.state.isButton?
         <OverlayTrigger
             placement="right"
             overlay={<Tooltip id="button-tooltip-2" >Ajoute moi à ton menu !</Tooltip>}>
-            <Button variant="outline-primary" size={"sm"}>+</Button>
+            <Button variant="outline-primary" size={"sm"} onClick={() => this.clickPlus()}>+</Button>
         </OverlayTrigger>:"";
-        let vege = this.state.aliment.isVege? <FontAwesomeIcon icon={faLeaf} color="green"  rotation="270" />: <span/>;
+        let vege = this.state.aliment.isVege? <FontAwesomeIcon icon={faLeaf} color="green"  rotation={270} />: <span/>;
 
 
 

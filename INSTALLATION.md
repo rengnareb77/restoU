@@ -16,7 +16,7 @@ La première étape consiste à récupérer le projet depuis github, pour cela 2
 
 ## Étape 2: Installation des différents modules grâce à Node
 
-Une fois que vous avez télécharger le projet ouvrez un terminal à l'emplacement ou vous avez récupérer les projet `cd *endroit/ou/est/situé/le/projet`. 
+Une fois que vous avez télécharger le projet ouvrez un terminal à l'emplacement ou vous avez récupérer les projet `cd endroit/ou/est/situé/le/projet`. 
 
 Pour être sur que c'est le bon emplacement exécutez la commande `ls` et cette dernière doit vous retourner `INSTALLATION.MD package.json public src node_modules package-lock.json README.md` .
 

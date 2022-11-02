@@ -7,26 +7,28 @@ import Button from "react-bootstrap/Button";
 
 class Calendrier extends React.Component {
   constructor(props) {
-    super(props);
+    super(props);//Props: date,
+
     this.state = {
       isOpen: false,
-      date: new Date()
+      date: this.props.date,
     };
   }
 
   render() {
     return (
       <div>
-        <button
+        <Button
           onClick={() => {
             this.setState({ isOpen: true });
           }}
         >
-          {this.state.date.toLocaleString()}
-        </button>
+          {this.state.date.toDateString()}
+        </Button>
         <DatePicker
           isOpen={this.state.isOpen}
-          onClose={() => this.setState({ isOpen: false })}
+          onClose={() => this.setState({ isOpen: false })}          
+          onChange={(e) => this.setState({ date: e, isOpen: false })}
           defaultValue={this.state.date}
           minDate={new Date(2022, 9, 10)}
           maxDate={new Date(2023, 0, 10)}
