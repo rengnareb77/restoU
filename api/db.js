@@ -93,6 +93,21 @@ const DataBase = function (){
 
 }
 
+    /* ============================ */
+    /* Requêtes relatives à Login   */
+    /* ============================ */
+
+    this.checkLogin = async (login) =>{
+        const conn = await pool.getConnection();
+        let loginRecu= []
+        const request ="SELECT pseudoAdmin,passwordAdmin FROM admin WHERE pseudoAdmin=? and passwordAdmin=?"
+        conn.queryStream(request,[login.pseudoAdmin,login.passwordAdmin])
+            .on("data",data => loginRecu.push(data));
+        await conn.end();
+        console.log(loginRecu);
+        return loginRecu;
+    }
+
 module.exports = new DataBase();
 
 
