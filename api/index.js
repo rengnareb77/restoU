@@ -5,7 +5,7 @@ const carte = require('./routes/carte');
 const restoU = require('./routes/restoU');
 const aliment = require('./routes/aliment');
 const login = require('./routes/login');
-const port = 3000;
+const port = 3330;
 
 app.get("/", (req, res) => {
     res.send("Hello World!");

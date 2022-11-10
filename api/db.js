@@ -72,7 +72,10 @@ const DataBase = function (){
     }
 
     this.updateAliment = async (id,aliment) =>{
-        // TODO : Mettre à jour un aliment
+        const conn = await pool.getConnection();
+        const request = "UPDATE aliment SET nomAl=?, type=?, calories=?, allergenes=? ,vegan=? ,nutriscore=? ,description=?, proteines=?, lipides=?, portionBase=? WHERE idAliment = ?";
+        await conn.query(request, [aliment.nomAl, aliment.type, aliment.calories, aliment.allergenes, aliment.vegan, aliment.nutriscore, aliment.description, aliment.proteines, aliment.lipides, aliment.portionBase, id]);
+        await conn.end();
     }
 
     this.deleteAliment = async (id) =>{
