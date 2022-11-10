@@ -59,7 +59,7 @@ const DataBase = function (){
     this.getAliments = async () =>{
         const conn = await pool.getConnection();
             let aliment = [];
-        conn.queryStream("SELECT * FROM Aliment")
+        conn.queryStream("SELECT * FROM aliment")
             .on("data", data => aliment.push(data))
         await conn.end();
         return aliment;
