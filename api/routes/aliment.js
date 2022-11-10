@@ -3,14 +3,17 @@ const db = require('../db');
 
 const router = express.Router();
 
-router.get("/aliments", async (req, res) => {
-    // TODO : Récupère tous les aliments
-    res.send("Pas implémenté");
-});
 
+router.get('/aliments',async function(req,res){
+    db.getAliments()
+        .then((data)=>res.set(200).json(data))
+        .catch(()=> res.set(500).send("Erreur lors de la recuperation des aliments"));
+
+});
 router.get("/aliment/:id", async (req, res) => {
-    // TODO : Récupère un aliment spécifique
-    res.send("Pas implémenté");
+    db.getAlimentById()
+        .then((data)=>res.set(200).send(data))
+        .catch(()=> res.set(500).send("Erreur lors de la recuperation des aliments"));
 });
 
 router.post("/aliment", async (req, res) => {

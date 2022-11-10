@@ -4,8 +4,7 @@ const db = require('../db');
 const router = express.Router();
 
 router.get("/cartes", async (req, res) => {
-    // TODO : Récupérer toutes les cartes
-    res.send("Pas implémenté");
+    res.json(await db.getCartes());
 });
 
 router.get("/carte/:ru/:date/:service", async (req, res) => {
