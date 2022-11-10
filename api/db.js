@@ -60,7 +60,7 @@ const DataBase = function (){
     this.getAliments = async () =>{
         const conn = await pool.getConnection();
             let aliment = [];
-        conn.queryStream("SELECT * FROM Aliment")
+        conn.queryStream("SELECT * FROM aliment")
             .on("data", data => aliment.push(data))
         await conn.end();
         return aliment;
@@ -79,8 +79,8 @@ const DataBase = function (){
 
     this.createAliment = async (aliment) =>{
         const conn = await pool.getConnection();
-        const request = "INSERT INTO aliment (nom,type,calories,allergene,vegan,nutriscore,description,idChoix,proteines,lipides,portionBase) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
-        await conn.query(request, [aliment.nom, aliment.type, aliment.calories, aliment.allergene, aliment.vegan, aliment.nutriscore, aliment.description, aliment.idChoix, aliment.proteines, aliment.lipides, aliment.portionBase]);
+        const request = "INSERT INTO aliment (nomAl,type,calories,allergenes,vegan,nutriscore,description,proteines,lipides,portionBase) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+        await conn.query(request, [aliment.nomAl, aliment.type, aliment.calories, aliment.allergenes, aliment.vegan, aliment.nutriscore, aliment.description, aliment.idChoix, aliment.proteines, aliment.lipides, aliment.portionBase]);
         await conn.end();
     }
 
@@ -95,8 +95,23 @@ const DataBase = function (){
         await conn.end();
     }
 
-}
 
+
+    /* ============================ */
+    /* Requêtes relatives à Login   */
+    /* ============================ */
+
+    this.checkLogin = async (login) =>{
+        const conn = await pool.getConnection();
+        let loginRecu= []
+        const request ="SELECT pseudoAdmin,passwordAdmin FROM admin WHERE pseudoAdmin=? and passwordAdmin=?"
+        conn.queryStream(request,[login.pseudoAdmin,login.passwordAdmin])
+            .on("data",data => loginRecu.push(data));
+        await conn.end();
+        console.log(loginRecu);
+        return loginRecu;
+    }
+}
 module.exports = new DataBase();
 
 
