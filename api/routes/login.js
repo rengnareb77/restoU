@@ -10,7 +10,7 @@ router.post("/login", async (req, res) => {
     if(reponse.length>0){
         res.set(200).send("Login vérifié");
     }else{
-        res.set(500).sned("Erreur Login");
+        res.set(500).send("Erreur Login");
     }
 });
 
