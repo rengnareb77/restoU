@@ -56,6 +56,7 @@ const DataBase = function (){
     /* Requêtes relatives à Aliment */
     /* ============================ */
 
+  
     this.getAliments = async () =>{
         const conn = await pool.getConnection();
             let aliment = [];
@@ -68,9 +69,12 @@ const DataBase = function (){
 
     this.getAlimentById = async (id) =>{
         const conn = await pool.getConnection();
-        const request = "SELECT  FROM aliment WHERE idAliment = ?";
+        let aliment = [];
+        conn.queryStream("SELECT * FROM aliment WHERE idAliment = ?")
+            .on("data", data => aliment.push(data))
         await conn.query(request, [id]);
-        await conn.end();
+        await conn.end(); 
+        return aliment;
     }
 
     this.createAliment = async (aliment) =>{
