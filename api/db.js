@@ -15,11 +15,27 @@ const DataBase = function (){
     /* ========================== */
 
     this.getCartes = async ()=>{
-        // TODO : Récupérer toutes les cartes
+        
     }
 
     this.getCarte = async (ru,date,service) => {
-        // TODO : Récupérer une carte spécifique
+        const conn = await pool.getConnection();
+        let restoU = [];
+        let alim = [];
+
+        const request = "SELECT idChoix_Menu, etapeRepas FROM ru JOIN carte ON (ru.idRu = carte.ru_idRu) JOIN choix_menu ON (carte.idCarte = choix_menu.ct_idCarte) JOIN etape_Repas ON (choix_menu.er_idEtape_Repas = etape_Repas.idEtape_Repas) WHERE nomRu = ? AND jour = ? AND momentJour = ?;";
+        restoU = await conn.query(request,[ru,date,service])
+        
+
+        for(elem of restoU){
+            alim.push(elem.etapeRepas);
+            const request = "SELECT nomAl FROM composition JOIN aliment ON (composition.al_idAliment = aliment.idAliment) WHERE chm_idChoixM = ?;";
+            alim.push( await conn.query(request,[elem.idChoix_Menu]) );
+                //.on("data", data => alim.push(data))  
+        }
+        
+        await conn.end();
+        return alim;
     }
 
     this.addCarte = async (carte) => {
