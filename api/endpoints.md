@@ -9,17 +9,17 @@
 
 ### POST
 
-- [ ] `/carte` : Ajoute une carte dans la base de données **Jean-Baptiste**
+- [ ] `/carte` : Ajoute une carte dans la base de données. **Jean-Baptiste**
 
 ### PUT
 
-- [ ] `/carte/id` : Modifie la carte ayant l'identifiant `id`. **Nathanael**
+- [ ] `/carte/id` : Modifie la carte ayant l'identifiant. `id`. **Nathanael**
 
 ## RestoU
 
 ### GET
 
-- [x] `/restoU` : La liste des restaurant universitaire. **Xavier**
+- [x] `/restoU` : La liste des restaurants universitaire. **Xavier**
 
 - [x] `/restoU/:id` : le restaurant universitaire ayant l'identifiant `id`. **Lucas**
 
@@ -47,4 +47,4 @@
 
 ### POST
 
-- [ ] `/login` : Vérifie si les informations de connexion saisie sont correct. **Nevin**
+- [x] `/login` : Vérifie si les informations de connexion saisie sont correcte. **Nevin**
