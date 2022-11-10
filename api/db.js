@@ -15,7 +15,12 @@ const DataBase = function (){
     /* ========================== */
 
     this.getCartes = async ()=>{
-        // TODO : Récupérer toutes les cartes
+        const conn = await pool.getConnection();
+        let carte = [];
+        conn.queryStream("SELECT * FROM carte")
+            .on("data", data => carte.push(data))
+        await conn.end();
+        return carte;
     }
 
     this.getCarte = async (ru,date,service) => {
@@ -27,7 +32,10 @@ const DataBase = function (){
     }
 
     this.updateCarte = async (id,carte) => {
-        // TODO : Mettre à jour une carte
+        const conn = await pool.getConnection();
+        const request = "UPDATE carte SET jour = ?, ru_idru = ? WHERE idCarte = ?";
+        await conn.query(request, [carte.jour, carte.ru_idru, id]);
+        await conn.end();
     }
 
     /* =========================== */
@@ -67,12 +75,11 @@ const DataBase = function (){
     } 
         
 
-    this.getAlimentById = async (id) =>{
+   this.getAlimentById = async (id) =>{
         const conn = await pool.getConnection();
         let aliment = [];
-        conn.queryStream("SELECT * FROM aliment WHERE idAliment = ?")
+        conn.queryStream("SELECT * FROM aliment WHERE idAliment = ?",[id])
             .on("data", data => aliment.push(data))
-        await conn.query(request, [id]);
         await conn.end(); 
         return aliment;
     }
@@ -84,8 +91,11 @@ const DataBase = function (){
         await conn.end();
     }
 
-    this.updateAliment = async (id,aliment) =>{ 
-        // TODO : Mettre à jour un aliment
+    this.updateAliment = async (id,aliment) =>{
+        const conn = await pool.getConnection();
+        const request = "UPDATE aliment SET nomAl=?, type=?, calories=?, allergenes=? ,vegan=? ,nutriscore=? ,description=?, proteines=?, lipides=?, portionBase=? WHERE idAliment = ?";
+        await conn.query(request, [aliment.nomAl, aliment.type, aliment.calories, aliment.allergenes, aliment.vegan, aliment.nutriscore, aliment.description, aliment.proteines, aliment.lipides, aliment.portionBase, id]);
+        await conn.end();
     }
 
     this.deleteAliment = async (id) =>{

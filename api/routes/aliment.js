@@ -11,7 +11,8 @@ router.get('/aliments',async function(req,res){
 
 });
 router.get("/aliment/:id", async (req, res) => {
-    db.getAlimentById()
+    const id = req.params.id;
+    db.getAlimentById(id)
         .then((data)=>res.set(200).send(data))
         .catch(()=> res.set(500).send("Erreur lors de la recuperation des aliments"));
 });
@@ -24,8 +25,11 @@ router.post("/aliment", async (req, res) => {
 });
 
 router.put("/aliment/:id", async (req, res) => {
-    // TODO : Modifie un aliment
-    res.send("Pas implémenté");
+    const body = req.body;
+    const id = req.params.id;
+    db.updateAliment(id,body)
+        .then(()=>res.set(200).send("Aliment modifié"))
+        .catch(()=> res.set(500).send("Erreur lors de la modification de l'aliment"));
 });
 
 

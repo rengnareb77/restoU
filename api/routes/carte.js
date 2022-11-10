@@ -4,8 +4,7 @@ const db = require('../db');
 const router = express.Router();
 
 router.get("/cartes", async (req, res) => {
-    // TODO : Récupérer toutes les cartes
-    res.send("Pas implémenté");
+    res.json(await db.getCartes());
 });
 
 router.get("/carte/:ru/:date/:service", async (req, res) => {
@@ -19,8 +18,12 @@ router.post("/carte", async (req, res) => {
 });
 
 router.put("/carte/:id", async (req, res) => {
-    // TODO : Modifie une carte
-    res.send("Pas implémenté");
+    const body = req.body;
+    const id = req.params.id;
+    console.log(body);
+    db.updateCarte(id, body)
+        .then(()=>res.set(200).send("Carte mise à jour"))
+        .catch((e)=> console.log(e));
 });
 
 
