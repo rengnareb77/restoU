@@ -32,7 +32,10 @@ const DataBase = function (){
     }
 
     this.updateCarte = async (id,carte) => {
-        // TODO : Mettre à jour une carte
+        const conn = await pool.getConnection();
+        const request = "UPDATE carte SET jour = ?, ru_idru = ? WHERE idCarte = ?";
+        await conn.query(request, [carte.jour, carte.ru_idru, id]);
+        await conn.end();
     }
 
     /* =========================== */
