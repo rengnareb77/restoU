@@ -9,11 +9,11 @@
 
 ### POST
 
-- [ ] `/carte` : Ajoute une carte dans la base de données **Jean-Baptiste**
+- [ ] `/carte` : Ajoute une carte dans la base de données. **Jean-Baptiste**
 
 ### PUT
 
-- [ ] `/carte/id` : Modifie la carte ayant l'identifiant `id`. **Nathanael**
+- [ ] `/carte/id` : Modifie la carte ayant l'identifiant. `id`. **Nathanael**
 
 ## RestoU
 
@@ -47,4 +47,4 @@
 
 ### POST
 
-- [x] `/login` : Vérifie si les informations de connexion saisie sont correct. **Nevin**
+- [x] `/login` : Vérifie si les informations de connexion saisie sont correcte. **Nevin**
