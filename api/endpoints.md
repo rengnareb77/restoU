@@ -19,7 +19,7 @@
 
 ### GET
 
-- [x] `/restoU` : La liste des restaurant universitaire. **Xavier**
+- [x] `/restoU` : La liste des restaurants universitaire. **Xavier**
 
 - [x] `/restoU/:id` : le restaurant universitaire ayant l'identifiant `id`. **Lucas**
 
@@ -47,4 +47,4 @@
 
 ### POST
 
-- [ ] `/login` : Vérifie si les informations de connexion saisie sont correct. **Nevin**
+- [x] `/login` : Vérifie si les informations de connexion saisie sont correct. **Nevin**
