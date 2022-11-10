@@ -1,0 +1,46 @@
+
+.Header #logo{
+  margin-right: 30px;
+}
+.Filtre{
+  max-width: 30%;
+  background: #980000;
+  text-align: center;
+  color: aliceblue;
+}
+.Cartes{
+  display: flex;
+  justify-content: space-between;
+}
+
+.Carte{
+  display: inline-block;
+  min-width: 15%;
+  padding: 8px;
+  text-align: center;
+}
+.PlatChoix{
+  padding: 4px;
+  margin: 2px;
+}
+
+.Aliment {
+  margin: 1px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+.Footer{
+  min-height: 50px;
+  background: #980000;
+  text-align: center;
+  color: aliceblue;
+}
+
+
+
+
+
+

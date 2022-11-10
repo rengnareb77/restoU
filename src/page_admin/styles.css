@@ -1,0 +1,22 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.Header #logo {
+  margin-right: 30px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  background-color: black;
+  color: #fff;
+}
+
+.champs {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}

@@ -1,0 +1,52 @@
+
+.cardsRu{
+    section{
+        height: 33vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .cardss{
+            background-color: rgba(240, 234, 234, 0.42);
+            box-shadow: 0 0 0.9375 rgba(0, 0, 0, 0.219);
+            width: 850px;
+            border-radius: 4px;
+            
+            display: flex;  
+         }
+         .card_hero{
+            flex: 0 0 50%;
+            position: relative;
+         } 
+         .card_img{ 
+            display: block;
+            width: 100%;}
+  
+        .card_content{
+            flex: 1;
+            padding: 35px 35px 25px 35px;
+            margin-top: 30px;
+        
+            display: flex;
+            flex-direction: column;
+        }
+        .card_info{
+            display: flex;
+            flex-direction: column;
+        }
+        .card_price{
+            font-weight: 500;
+            letter-spacing: 1px;
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+        .card_address{
+            font-size: 14px;
+            font-weight: 300;
+            margin-bottom: 8px;
+        }
+        .card_details{
+            font-size: 12.5px;
+            font-weight: 400;
+        }
+    }
+}
