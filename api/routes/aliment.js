@@ -4,7 +4,7 @@ const db = require('../db');
 const router = express.Router();
 
 
-router.get('/aliment',async function(req,res){
+router.get('/aliments',async function(req,res){
     const body = req.body;
     db.getAliments()
         .then(()=>res.set(200).send("liste Aliment"))
