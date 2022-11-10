@@ -75,12 +75,11 @@ const DataBase = function (){
     } 
         
 
-    this.getAlimentById = async (id) =>{
+   this.getAlimentById = async (id) =>{
         const conn = await pool.getConnection();
         let aliment = [];
-        conn.queryStream("SELECT * FROM aliment WHERE idAliment = ?")
+        conn.queryStream("SELECT * FROM aliment WHERE idAliment = ?",[id])
             .on("data", data => aliment.push(data))
-        await conn.query(request, [id]);
         await conn.end(); 
         return aliment;
     }

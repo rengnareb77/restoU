@@ -11,7 +11,8 @@ router.get('/aliments',async function(req,res){
 
 });
 router.get("/aliment/:id", async (req, res) => {
-    db.getAlimentById()
+    const id = req.params.id;
+    db.getAlimentById(id)
         .then((data)=>res.set(200).send(data))
         .catch(()=> res.set(500).send("Erreur lors de la recuperation des aliments"));
 });

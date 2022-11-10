@@ -27,9 +27,9 @@
 
 ### GET
 
-- [ ] `/aliments` : La liste des aliments. **Thomas**
+- [x] `/aliments` : La liste des aliments. **Thomas**
 
-- [ ] `/aliment/:id` : L'aliment ayant l'identifiant `id`. **Thomas**
+- [x] `/aliment/:id` : L'aliment ayant l'identifiant `id`. **Thomas**
 
 ### POST
 
