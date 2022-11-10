@@ -15,7 +15,12 @@ const DataBase = function (){
     /* ========================== */
 
     this.getCartes = async ()=>{
-        // TODO : Récupérer toutes les cartes
+        const conn = await pool.getConnection();
+        let carte = [];
+        conn.queryStream("SELECT * FROM carte")
+            .on("data", data => carte.push(data))
+        await conn.end();
+        return carte;
     }
 
     this.getCarte = async (ru,date,service) => {
