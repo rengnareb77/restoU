@@ -5,16 +5,14 @@ const router = express.Router();
 
 
 router.get('/aliments',async function(req,res){
-    const body = req.body;
     db.getAliments()
-        .then(()=>res.set(200).send("liste Aliment"))
+        .then((data)=>res.set(200).json(data))
         .catch(()=> res.set(500).send("Erreur lors de la recuperation des aliments"));
 
 });
 router.get("/aliment/:id", async (req, res) => {
-    const body = req.body;
-    db.getAlimentById(body)
-        .then(()=>res.set(200).send("liste Aliment"))
+    db.getAlimentById()
+        .then((data)=>res.set(200).send(data))
         .catch(()=> res.set(500).send("Erreur lors de la recuperation des aliments"));
 });
 
@@ -26,8 +24,11 @@ router.post("/aliment", async (req, res) => {
 });
 
 router.put("/aliment/:id", async (req, res) => {
-    // TODO : Modifie un aliment
-    res.send("Pas implémenté");
+    const body = req.body;
+    const id = req.params.id;
+    db.updateAliment(id,body)
+        .then(()=>res.set(200).send("Aliment modifié"))
+        .catch(()=> res.set(500).send("Erreur lors de la modification de l'aliment"));
 });
 
 
