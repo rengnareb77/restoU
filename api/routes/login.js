@@ -6,7 +6,7 @@ const router = express.Router();
 router.post("/login", async (req, res) => {
     // TODO : Récupérer toutes les cartes
     let body = req.body;
-    let reponse = db.checkLogin(body);
+    let reponse = await db.checkLogin(body);
     if(reponse.length>0){
         res.set(200).send("Login vérifié");
     }else{

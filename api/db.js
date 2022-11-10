@@ -101,14 +101,15 @@ const DataBase = function (){
     /* Requêtes relatives à Login   */
     /* ============================ */
 
-    this.checkLogin = async (login) =>{
+    this.checkLogin = async (admin) =>{
         const conn = await pool.getConnection();
         let loginRecu= []
-        const request ="SELECT pseudoAdmin,passwordAdmin FROM admin WHERE pseudoAdmin=? and passwordAdmin=?"
-        conn.queryStream(request,[login.pseudoAdmin,login.passwordAdmin])
+        const request ="SELECT login,mdp FROM admin WHERE login=? and mdp=?"
+        conn.queryStream(request,[admin.login,admin.mdp])
             .on("data",data => loginRecu.push(data));
         await conn.end();
-        console.log(loginRecu);
+	console.log(loginRecu);
+	console.log(loginRecu.length);
         return loginRecu;
     }
 }
