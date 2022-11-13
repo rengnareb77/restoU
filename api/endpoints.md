@@ -9,7 +9,7 @@
 
 ### POST
 
-- [ ] `/carte` : Ajoute une carte dans la base de données. **Jean-Baptiste**
+- [x] `/carte` : Ajoute une carte dans la base de données. **Jean-Baptiste**
 
 ### PUT
 
