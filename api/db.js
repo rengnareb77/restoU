@@ -1,5 +1,6 @@
 const {createPool} = require("mariadb");
 const { config } = require('dotenv');
+const { Carte,Aliment,RestoU,Admin } = require('./types');
 config();
 
 const DataBase = function (){
@@ -43,13 +44,27 @@ const DataBase = function (){
         return alim;
     }
 
-    this.addCarte = async (carte) => {
-        // TODO : Ajouter une carte
+    this.createCarte = 
+    /**
+    * 
+    * @param {Carte} carte 
+    * @returns {Promise<Carte>}
+    */
+   async (carte) => {
+       const conn = await pool.getConnection();
+       const {jour, ru_idRu} = carte;
+       const query = 
+       `INSERT into carte (jour,ru_idRu)
+       VALUES (?,?)`;
+       const options = [jour,ru_idRu];
+       const res = {...carte,idCarte:Number((await conn.query(query,options)).insertId)};
+       await conn.end();
+       return res;
     }
 
     this.updateCarte = async (id,carte) => {
         const conn = await pool.getConnection();
-        const request = "UPDATE carte SET jour = ?, ru_idru = ? WHERE idCarte = ?";
+        const request = "UPDATE carte SET jour = ?, ru_idRu = ? WHERE idCarte = ?";
         await conn.query(request, [carte.jour, carte.ru_idru, id]);
         await conn.end();
     }
@@ -91,12 +106,11 @@ const DataBase = function (){
     } 
         
 
-    this.getAlimentById = async (id) =>{
+   this.getAlimentById = async (id) =>{
         const conn = await pool.getConnection();
         let aliment = [];
-        conn.queryStream("SELECT * FROM aliment WHERE idAliment = ?")
+        conn.queryStream("SELECT * FROM aliment WHERE idAliment = ?",[id])
             .on("data", data => aliment.push(data))
-        await conn.query(request, [id]);
         await conn.end(); 
         return aliment;
     }

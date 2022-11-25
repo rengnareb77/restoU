@@ -1,6 +1,5 @@
 import React from 'react';
 import Menu_Btn from '../../component/Menu_Btn';
-
 const Cards_Ru = ({ru}) => {
     return (
         <div className="cardsRu">   

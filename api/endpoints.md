@@ -9,7 +9,7 @@
 
 ### POST
 
-- [ ] `/carte` : Ajoute une carte dans la base de données. **Jean-Baptiste**
+- [x] `/carte` : Ajoute une carte dans la base de données. **Jean-Baptiste**
 
 ### PUT
 
@@ -27,9 +27,9 @@
 
 ### GET
 
-- [ ] `/aliments` : La liste des aliments. **Thomas**
+- [x] `/aliments` : La liste des aliments. **Thomas**
 
-- [ ] `/aliment/:id` : L'aliment ayant l'identifiant `id`. **Thomas**
+- [x] `/aliment/:id` : L'aliment ayant l'identifiant `id`. **Thomas**
 
 ### POST
 

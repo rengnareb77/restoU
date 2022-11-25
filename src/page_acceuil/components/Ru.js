@@ -7,7 +7,7 @@ const Ru = () => {
 
     useEffect(() => {
         axios
-          .get("http://obiwan.univ-brest.fr:7070/user/1")
+          .get("http://localhost:7070/api/restoU")
           .then((res) => setData(res.data));
       }, []);
     return (
